@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEROVEL — Intelligence Beyond Limits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050505;--bg2:#101010;--tx:#fff;--mu:#A1A1AA;--bd:#242424;--bd2:#3a3a3a;--r:18px;--nav:rgba(5,5,5,.6);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#050505}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:120px 0}
+h2{font-size:clamp(1.6rem,4vw,2.8rem);max-width:15em}
+.lead{color:var(--mu);max-width:34em}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 26px;border-radius:999px;border:1px solid var(--bd2);font-weight:600;font-size:.85rem;letter-spacing:.06em;cursor:pointer;background:transparent;color:var(--tx);transition:background .25s,color .25s,border-color .25s,transform .25s}
+.btn:hover{border-color:#fff;transform:translateY(-2px)}
+.btn.p{background:#fff;color:#050505;border-color:#fff}
+.btn.p:hover{background:#d4d4d8;border-color:#d4d4d8}
+.btn.s{padding:9px 18px}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+/* nav */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:70;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.sc{background:var(--nav);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--bd)}
+.nb{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{font-family:Unbounded,sans-serif;font-weight:700;letter-spacing:.14em;font-size:1rem;display:flex;align-items:center;gap:10px}
+.logo i{width:22px;height:22px;border-radius:50%;border:2px solid #fff;position:relative;display:block}
+.logo i::after{content:"";position:absolute;inset:4px;border-radius:50%;background:#fff}
+.links{display:flex;gap:30px;font-size:.9rem;color:var(--mu)}
+.links a{transition:color .2s}.links a:hover{color:#fff}
+.cta{display:flex;gap:10px}
+.burger{display:none;background:none;border:1px solid var(--bd2);border-radius:12px;color:#fff;width:42px;height:42px;cursor:pointer}
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;position:relative;padding:130px 0 80px;overflow:hidden}
+#orb{position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:min(780px,95vw);height:min(780px,95vw);opacity:.95;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(5,5,5,.85) 20%,transparent 65%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--bd2);border-radius:999px;padding:7px 16px;font-size:.75rem;letter-spacing:.14em;color:var(--mu);margin-bottom:34px}
+.dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 2.4s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.hero h1{font-size:clamp(2.4rem,8vw,6.4rem);font-weight:700;max-width:9em;margin-bottom:28px}
+.hero h1 span{display:block;opacity:0;transform:translateY(40px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1 span:nth-child(2){animation-delay:.15s}.hero h1 span:nth-child(3){animation-delay:.3s}
+@keyframes up{to{opacity:1;transform:none}}
+.hero .lead{font-size:1.15rem;margin-bottom:40px;opacity:0;animation:up .9s .5s forwards}
+.hero .row{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:up .9s .65s forwards}
+/* stats */
+.stats{border-block:1px solid var(--bd);background:var(--bg2);padding:64px 0}
+.sg{display:grid;grid-template-columns:repeat(4,1fr)}
+.st{padding:0 28px;border-left:1px solid var(--bd)}
+.st:first-child{border:0;padding-left:0}
+.num{font-family:Unbounded,sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:300}
+.st small{display:block;color:var(--mu);font-size:.85rem}
+.note{color:#6b6b72;font-size:.8rem;margin-top:30px}
+/* features */
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x,50%) var(--y,0),rgba(255,255,255,.08),transparent 70%);opacity:0;transition:opacity .3s}
+.card:hover{border-color:var(--bd2);transform:translateY(-4px)}.card:hover::before{opacity:1}
+.card svg{width:34px;height:34px;stroke:#fff;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:56px;position:relative}
+.card h3{font-size:1rem;margin-bottom:10px;position:relative}
+.card p{margin:0;color:var(--mu);font-size:.92rem;position:relative}
+/* about */
+.ab{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.ab h2{font-size:clamp(2rem,6vw,4.6rem);font-weight:700;max-width:7em;margin-bottom:30px}
+.vis{aspect-ratio:1;border:1px solid var(--bd);border-radius:var(--r);background:var(--bg2);position:relative;overflow:hidden}
+.vis svg{position:absolute;inset:0;width:100%;height:100%}
+.ring{transform-origin:200px 200px;animation:spin 40s linear infinite}
+.ring.b{animation-duration:70s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* commands */
+.cm{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);margin-top:56px;overflow:hidden}
+.ct{display:flex;gap:12px;padding:16px;border-bottom:1px solid var(--bd);flex-wrap:wrap;align-items:center}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{background:none;border:1px solid transparent;color:var(--mu);border-radius:999px;padding:7px 16px;font:500 .85rem Manrope,sans-serif;cursor:pointer;transition:all .2s}
+.tab:hover{color:#fff}.tab.on{background:#fff;color:#050505}
+#q{margin-left:auto;background:var(--bg);border:1px solid var(--bd2);border-radius:999px;padding:9px 18px;color:#fff;font:400 .9rem Manrope,sans-serif;width:240px;max-width:100%}
+.cl{max-height:440px;overflow:auto}
+.cr{display:grid;grid-template-columns:200px 1fr 1.1fr;gap:24px;padding:18px 24px;border-bottom:1px solid var(--bd);align-items:center;animation:fade .35s}
+.cr:last-child{border:0}
+@keyframes fade{from{opacity:0}}
+.cn{font-family:ui-monospace,Menlo,monospace;font-size:.92rem}
+.cd{color:var(--mu);font-size:.9rem}
+.ce{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;color:#d4d4d8;overflow-x:auto;white-space:nowrap}
+.empty{padding:40px;text-align:center;color:var(--mu)}
+/* community */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:56px 0 40px}
+.tc{border:1px dashed var(--bd2);border-radius:var(--r);padding:28px;min-height:170px;display:flex;flex-direction:column;justify-content:space-between;color:var(--mu);font-size:.92rem}
+.tc b{color:#fff;font-weight:600;font-size:.85rem}
+.join{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.join h3{font-size:1.4rem;margin-bottom:8px}.join p{margin:0;color:var(--mu)}
+/* footer */
+footer{border-top:1px solid var(--bd);padding:70px 0 40px}
+.fg2{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.fl{display:grid;gap:10px;color:var(--mu);font-size:.92rem;align-content:start}
+.fl a:hover{color:#fff}
+.fl b{color:#fff;font-weight:600;margin-bottom:4px}
+.cp{color:#6b6b72;font-size:.85rem;border-top:1px solid var(--bd);padding-top:26px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+#cur{position:fixed;width:34px;height:34px;border:1px solid rgba(255,255,255,.5);border-radius:50%;pointer-events:none;z-index:90;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;display:none}
+#cur.h{width:56px;height:56px;background:rgba(255,255,255,.08)}
+@media (hover:hover) and (pointer:fine){#cur{display:block}}
+@media (max-width:980px){.fg{grid-template-columns:repeat(2,1fr)}.ab{grid-template-columns:1fr}.sg{grid-template-columns:repeat(2,1fr);row-gap:40px}.st:nth-child(3){border:0;padding-left:0}.tg{grid-template-columns:1fr}.cr{grid-template-columns:1fr;gap:10px}}
+@media (max-width:860px){.links,.cta .btn{display:none}.burger{display:block}
+.links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(5,5,5,.96);backdrop-filter:blur(16px);padding:24px;border-bottom:1px solid var(--bd);font-size:1.05rem}
+#orb{right:-30%;opacity:.55}section{padding:84px 0}.fg2{grid-template-columns:1fr}}
+@media (max-width:520px){.fg{grid-template-columns:1fr}.join{padding:28px}#q{width:100%;margin:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.hero h1 span,.hero .lead,.hero .row{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<nav id="nav"><div class="wrap nb">
+<a href="#home" class="logo"><i></i>NEROVEL</a>
+<div class="links" id="links"><a href="#home">Home</a><a href="#features">Features</a><a href="#commands">Commands</a><a href="#docs">Documentation</a><a href="#support">Support</a></div>
+<div class="cta"><a class="btn s" href="#">Dashboard</a><a class="btn s p" href="#">Invite Bot</a><button class="burger" id="bg" aria-label="Menu">☰</button></div>
+</div></nav>
+
+<header class="hero" id="home">
+<canvas id="orb"></canvas>
+<div class="wrap">
+<div class="status"><span class="dot"></span>NEROVEL SYSTEMS ONLINE</div>
+<h1><span>INTELLIGENCE</span><span>BEYOND</span><span>LIMITS.</span></h1>
+<p class="lead">Meet NEROVEL. An intelligent companion designed to transform your Discord experience.</p>
+<div class="row"><a class="btn p" href="#">ADD TO DISCORD</a><a class="btn" href="#features">EXPLORE FEATURES</a></div>
+</div>
+</header>
+
+<div class="stats"><div class="wrap">
+<div class="sg" id="sg">
+<div class="st"><div class="num" data-k="servers">—</div><small>Total Servers</small></div>
+<div class="st"><div class="num" data-k="users">—</div><small>Total Users</small></div>
+<div class="st"><div class="num" data-k="commands">—</div><small>Commands Executed</small></div>
+<div class="st"><div class="num" data-k="uptime" data-s="%">—</div><small>System Uptime</small></div>
+</div>
+<p class="note">Placeholders. Live figures appear here once the bot’s data is connected.</p>
+</div></div>
+
+<section id="features"><div class="wrap">
+<h2 class="rv">ONE BOT. LIMITLESS POSSIBILITIES.</h2>
+<div class="fg">
+<div class="card rv"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><h3>Advanced Moderation</h3><p>Keep your server safe with precise tools for bans, mutes, warnings and logs.</p></div>
+<div class="card rv"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg><h3>AI Conversations</h3><p>Natural, context-aware chat for answers, ideas and everyday help.</p></div>
+<div class="card rv"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg><h3>Server Management</h3><p>Roles, channels and permissions handled from simple commands.</p></div>
+<div class="card rv"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="4"/><path d="M8 10v5M5.500 12.500h5M16 11h.01M18 14h.01"/></svg><h3>Entertainment and Games</h3><p>Quick games and fun commands that keep members coming back.</p></div>
+<div class="card rv"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><h3>Music and Voice</h3><p>Play tracks, manage queues and fill voice channels with sound.</p></div>
+<div class="card rv"><svg viewBox="0 0 24 24"><path d="M14.500 6.500l3 3M4 20l1-4L16 5a2.100 2.100 0 013 3L8 19z"/></svg><h3>Custom Utilities</h3><p>Polls, reminders, info lookups and tools shaped around your server.</p></div>
+<div class="card rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><h3>Automation</h3><p>Welcome flows, auto-roles and scheduled actions that run on their own.</p></div>
+<div class="card rv"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.500"/><path d="M3 20c0-3.500 2.700-6 6-6s6 2.500 6 6M15 14.500c3 0 6 1.500 6 5.500"/></svg><h3>Community Engagement</h3><p>Levels, events and activity features that reward your members.</p></div>
+</div></div></section>
+
+<section id="docs" style="padding-top:20px"><div class="wrap ab">
+<div class="rv"><h2>MORE THAN JUST A BOT.</h2><p class="lead">NEROVEL is built to make communities smarter, more engaging and easier to manage. From everyday conversations to advanced server management, everything comes together in one intelligent experience.</p></div>
+<div class="vis rv"><svg viewBox="0 0 400 400" fill="none" stroke="#fff">
+<g class="ring" stroke-opacity=".5"><ellipse cx="200" cy="200" rx="160" ry="60" stroke-width="1"/><ellipse cx="200" cy="200" rx="160" ry="60" transform="rotate(60 200 200)"/><ellipse cx="200" cy="200" rx="160" ry="60" transform="rotate(120 200 200)"/></g>
+<circle class="ring b" cx="200" cy="200" r="120" stroke-opacity=".25" stroke-dasharray="3 9"/>
+<circle cx="200" cy="200" r="46" fill="#050505" stroke-opacity=".8"/><circle cx="200" cy="200" r="12" fill="#fff" stroke="none"/></svg></div>
+</div></section>
+
+<section id="commands" style="padding-top:20px"><div class="wrap">
+<h2 class="rv">EVERY COMMAND, ONE SEARCH AWAY.</h2>
+<div class="cm rv">
+<div class="ct"><div class="tabs" id="tabs"></div><input id="q" type="search" placeholder="Search commands" aria-label="Search commands"></div>
+<div class="cl" id="cl"></div>
+</div>
+<p class="note">Example commands. Final names and options will match the bot’s release.</p>
+</div></section>
+
+<section id="support"><div class="wrap">
+<h2 class="rv">BUILT FOR COMMUNITIES.</h2>
+<div class="tg">
+<div class="tc"><span>Community feedback will appear here once members share it.</span><b>Reserved</b></div>
+<div class="tc"><span>Community feedback will appear here once members share it.</span><b>Reserved</b></div>
+<div class="tc"><span>Community feedback will appear here once members share it.</span><b>Reserved</b></div>
+</div>
+<div class="join rv"><div><h3>Join the BLACKOUT community</h3><p>Get help, share ideas and see what’s next for NEROVEL.</p></div><a class="btn p" href="#">JOIN BLACKOUT ON DISCORD</a></div>
+</div></section>
+
+<footer><div class="wrap">
+<div class="fg2">
+<div><a href="#home" class="logo"><i></i>NEROVEL</a><p class="lead" style="margin-top:18px;font-size:.92rem">Intelligence Beyond Limits.</p></div>
+<div class="fl"><b>Product</b><a href="#about">About</a><a href="#docs">Documentation</a><a href="#support">Support</a></div>
+<div class="fl"><b>Legal and community</b><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Discord invitation</a></div>
+</div>
+<div class="cp">© 2026 NEROVEL. All rights reserved.</div>
+</div></footer>
+
+<script>
+const STATS={servers:null,users:null,commands:null,uptime:null};
+const CMDS=[
+["Moderation","/ban","Remove a member from the server.","/ban user:@member reason:spam"],
+["Moderation","/mute","Temporarily stop a member from chatting.","/mute user:@member duration:10m"],
+["Moderation","/warn","Add a warning to a member’s record.","/warn user:@member reason:off-topic"],
+["Moderation","/purge","Delete recent messages in bulk.","/purge amount:25"],
+["Utility","/poll","Start a poll for your members.","/poll question:Movie night? options:Yes,No"],
+["Utility","/remind","Get a reminder in chat later.","/remind time:2h task:stream starts"],
+["Utility","/userinfo","Show details about a member.","/userinfo user:@member"],
+["Entertainment","/trivia","Play a quick trivia round.","/trivia category:science"],
+["Entertainment","/coinflip","Flip a coin.","/coinflip"],
+["Entertainment","/8ball","Ask a question, get an answer.","/8ball question:Will it rain?"],
+["AI","/ask","Ask NEROVEL anything.","/ask prompt:Explain slowmode"],
+["AI","/summarize","Summarize a long conversation.","/summarize messages:50"],
+["AI","/rewrite","Rewrite text in a new tone.","/rewrite text:hello tone:formal"],
+["Music","/play","Play a song or add it to the queue.","/play query:song name or link"],
+["Music","/queue","See what’s playing next.","/queue"],
+["Music","/skip","Skip the current track.","/skip"],
+["Administration","/autorole","Give new members a role automatically.","/autorole role:@Member"],
+["Administration","/logs","Choose where server logs are sent.","/logs channel:#mod-logs"],
+["Administration","/setup","Run the guided server setup.","/setup"]
+];
+const cats=["All",...new Set(CMDS.map(c=>c[0]))];
+let cat="All";
+const tabs=document.getElementById("tabs"),cl=document.getElementById("cl"),q=document.getElementById("q");
+cats.forEach(c=>{const b=document.createElement("button");b.className="tab"+(c==="All"?" on":"");b.textContent=c;b.onclick=()=>{cat=c;[...tabs.children].forEach(t=>t.classList.toggle("on",t===b));draw()};tabs.appendChild(b)});
+function draw(){const s=q.value.trim().toLowerCase();
+const r=CMDS.filter(c=>(cat==="All"||c[0]===cat)&&(!s||c.slice(1).join(" ").toLowerCase().includes(s)));
+cl.innerHTML=r.length?r.map(c=>`<div class="cr"><div class="cn">${c[1]}</div><div class="cd">${c[2]}</div><div class="ce">${c[3]}</div></div>`).join(""):'<div class="empty">No commands match that search. Try another word or category.</div>'}
+q.oninput=draw;draw();
+/* nav */
+const nav=document.getElementById("nav"),links=document.getElementById("links");
+addEventListener("scroll",()=>nav.classList.toggle("sc",scrollY>20),{passive:true});
+document.getElementById("bg").onclick=()=>links.classList.toggle("open");
+links.querySelectorAll("a").forEach(a=>a.onclick=()=>links.classList.remove("open"));
+/* reveal + counters */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.disconnect();
+document.querySelectorAll(".num").forEach(n=>{const v=STATS[n.dataset.k],sf=n.dataset.s||"";if(v==null){n.textContent="—";return}
+const t0=performance.now();(function f(t){const p=Math.min((t-t0)/1800,1);n.textContent=Math.round(v*(1-Math.pow(1-p,3))).toLocaleString()+sf;if(p<1)requestAnimationFrame(f)})(t0)})}),{threshold:.4});
+cio.observe(document.getElementById("sg"));
+/* card glow + cursor */
+document.querySelectorAll(".card").forEach(c=>c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();c.style.setProperty("--x",e.clientX-r.left+"px");c.style.setProperty("--y",e.clientY-r.top+"px")}));
+const cur=document.getElementById("cur");
+addEventListener("pointermove",e=>{cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px";cur.classList.toggle("h",!!e.target.closest("a,button,.card,input"))});
+/* 3D chrome orb */
+(function(){const cv=document.getElementById("orb"),x=cv.getContext("2d");let W,H,D=Math.min(devicePixelRatio||1,2);
+function rs(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*D;cv.height=H*D;x.setTransform(D,0,0,D,0,0)}rs();addEventListener("resize",rs);
+const P=[],N=420;for(let i=0;i<N;i++){const y=1-2*(i+.5)/N,r=Math.sqrt(1-y*y),a=i*2.39996;P.push([Math.cos(a)*r,y,Math.sin(a)*r])}
+let mx=0,my=0,ang=0;addEventListener("pointermove",e=>{mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5)});
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function f(t){x.clearRect(0,0,W,H);const R=Math.min(W,H)*.3,cx=W/2,cy=H/2+Math.sin(t/1800)*8;ang+=rm?0:.003;
+const g=x.createRadialGradient(cx-R*.35,cy-R*.4,R*.05,cx,cy,R*1.05);g.addColorStop(0,"#9a9aa0");g.addColorStop(.35,"#2a2a2d");g.addColorStop(.75,"#0b0b0c");g.addColorStop(1,"#000");
+x.fillStyle=g;x.beginPath();x.arc(cx,cy,R,0,7);x.fill();x.strokeStyle="rgba(255,255,255,.18)";x.lineWidth=1;x.stroke();
+const ca=Math.cos(ang+mx),sa=Math.sin(ang+mx),cb=Math.cos(my*.6+.3),sb=Math.sin(my*.6+.3);
+for(const p of P){let X=p[0]*ca+p[2]*sa,Z=-p[0]*sa+p[2]*ca,Y=p[1]*cb-Z*sb;Z=p[1]*sb+Z*cb;if(Z<-.1)continue;
+x.fillStyle=`rgba(255,255,255,${.12+.7*Z})`;x.beginPath();x.arc(cx+X*R,cy+Y*R,.6+Z*1.4,0,7);x.fill()}
+for(let k=0;k<3;k++){x.strokeStyle=`rgba(255,255,255,${.22-k*.06})`;x.beginPath();x.ellipse(cx,cy,R*(1.35+k*.22),R*(.38+k*.08),ang*(k%2?-1:1)+k,0,7);x.stroke()}
+requestAnimationFrame(f)}requestAnimationFrame(f)})();
+</script>
+</body>
+</html>
